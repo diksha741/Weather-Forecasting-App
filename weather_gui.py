@@ -12,7 +12,7 @@ def get_weather():
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
 
     try:
-        response = requests.get(url, timeout = 5) #add timeout
+        response = requests.get(url)
         data = response.json()
 
         if response.status_code == 200:
@@ -29,7 +29,7 @@ def get_weather():
             sunrise_time = datetime.fromtimestamp(sunrise).strftime('%H:%M:%S')
             sunset_time = datetime.fromtimestamp(sunset).strftime('%H:%M:%S')
             result_label.config(
-                text=f"🌡️Temperature:{temp}°C (Feels like: {feels_like}°C)\n"f"💧Humidity:{humidity}%\n"f"🌀Pressure:{pressure} hPa \n" f"🌬️Wind:{wind_speed} m/s (Direction:{wind_direction}°) \n" f"👀Visibility:{visibility} meters \n" f"☁️Weather:{weather_description.capitalize()} \n" f"🌅Sunrise:{sunrise} (UTC)\n" f"🌇Sunset:{sunset} (UTC) \n",font=("Arial", 10)
+                text=f"🌡️ Temperature: {temp}°C (Feels like: {feels_like}°C)\n"f"💧 Humidity: {humidity}%\n"f"🌀 Pressure: {pressure} hPa \n" f"🌬️ Wind: {wind_speed} m/s (Direction: {wind_direction}°) \n" f"👀 Visibility: {visibility} meters \n" f"☁️ Weather: {weather_description.capitalize()} \n" f"🌅 Sunrise: {sunrise} (UTC)\n" f"🌇 Sunset: {sunset} (UTC) \n",font=("Arial", 10)
             )
             
         else:
@@ -47,16 +47,11 @@ windowscreen.geometry("800x600")
 windowscreen.configure(bg="#e6f9ff")
 
 
-#***********Input Frame**************
-input_frame = tk.Frame(windowscreen,bg = "#e6f9ff")
-input_frame.pack(pady = 20)
-
-
 #***********City Input***************
 city_label = tk.Label(windowscreen,text = "enter the name of city",bg = "#e6f7ff")
-city_label.pack(side = tk.LEFT)
+city_label.pack(pady = 10)
 city_entry = tk.Entry(windowscreen, width = 40,font=("Arial",12))
-city_entry.pack(side = tk.LEFT , padx  = 10)
+city_entry.pack()
 
 
 #***********Get Weather Button*******

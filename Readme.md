@@ -25,3 +25,6 @@ This is a simple weather forecast application built using **Python** and **Tkint
 2. **Install required library** (if not already):
    ```bash
    pip install requests
+## 📜 Credits  
+- Weather icons by [Freepik](https://www.freepik.com)  
+- Background image by [John Doe](https://unsplash.com/@johndoe) from [Unsplash](https://unsplash.com)  
